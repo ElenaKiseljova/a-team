@@ -12,4 +12,30 @@ Version: 1.0
 
 */
 
-@import "assets/css/style.min.css";
+@import "assets/css/main.min.css";
+
+* {
+  overflow-wrap: normal!important;
+}
+
+.visually-hidden,
+input[type=checkbox].visually-hidden,
+input[type=radio].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%)
+}
+
+.wpcf7-not-valid-tip {
+  position: absolute;
+
+  margin-top: 10px;
+}

@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html lang="en">
 
-    <?php
-      wp_head();
-    ?>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <?php
+    wp_head();
+  ?>
+</head>
 
-  <?php 
-              $logo_footer = get_theme_mod( 'logo_footer' ) ?? '';
-              $logo_header = get_theme_mod( 'logo_header' ) ?? '';   
-              
-              $ateam_option_names = get_option( 'ateam_settings_names' );
+<body>
+  <header class="header">
+    <div class="header__container container">
+      <?php 
+        get_template_part( 'templates/logo', 'header' );
+      ?>
 
-              var_dump($ateam_option_names);
-            ?>
-            <a href="<?= get_bloginfo( 'url' ); ?>" class="header__logo">
-              <img src="<?= $logo_header; ?>" alt="<?= get_bloginfo( 'name' ); ?>" />
-            </a>
+      <nav class="nav">
+        <?php
+          wp_nav_menu(
+            array(
+              'theme_location'  => 'top_menu',
+              'container'       => null,
+              'menu_class'      => 'nav__list',
+              'depth'           => 0,
+            )
+          );	
+        ?>
+      </nav>
 
-            <a href="<?= get_bloginfo( 'url' ); ?>" class="header__logo header__logo--blue">
-              <img src="<?= $logo_footer; ?>" alt="<?= get_bloginfo( 'name' ); ?>" />
-            </a>
+      <button class="burger">
+        <img class="burger__icon" src="<?= get_template_directory_uri(  ); ?>/assets/img/burger.svg" alt="burger">
+        <img class="burger__x-icon" src="<?= get_template_directory_uri(  ); ?>/assets/img/burger-x.svg" alt="x-icon">
+      </button>
+    </div>
+  </header>
