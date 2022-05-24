@@ -34,8 +34,12 @@ input[type=radio].visually-hidden {
   clip-path: inset(100%)
 }
 
-.wpcf7-not-valid-tip {
+.form .wpcf7-not-valid-tip {
   position: absolute;
 
   margin-top: 10px;
+}
+
+.form .wpcf7-form-control-wrap.terms {
+  display: none;
 }

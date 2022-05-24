@@ -249,7 +249,8 @@ function ateam_customizer ( $wp_customize )
     add_settings_section( 'ateam_settings_section', 'General settings', '', 'ateam_page' );
 
     // параметры: $id, $title, $callback, $page, $section, $args
-    add_settings_field('ateam_term', 'Select terms of use page', 'fill_ateam_term', 'ateam_page', 'ateam_settings_section' );
+    add_settings_field('ateam_term', 'Terms of use page', 'fill_ateam_term', 'ateam_page', 'ateam_settings_section' );
+    add_settings_field('ateam_testimonials', 'Testimonials page', 'fill_ateam_testimonials', 'ateam_page', 'ateam_settings_section' );
   }
 
   ## Заполняем опцию 1
@@ -268,11 +269,27 @@ function ateam_customizer ( $wp_customize )
     );    
   }
 
+  ## Заполняем опцию 2
+  function fill_ateam_testimonials(){
+    $val = get_option('ateam_settings_names');
+    $val = $val ? $val['testimonials'] : null;
+  
+    wp_dropdown_pages(
+      array(
+        'name'              => 'ateam_settings_names[testimonials]',
+        'show_option_none'  => __( '&mdash; Select &mdash;' ),
+        'option_none_value' => '0',
+        'selected'          => $val,
+        'post_status'       => array( 'draft', 'publish' ),
+      )
+    );    
+  }
+
   ## Очистка данных
   function sanitize_callback( $options ){
     // очищаем
     foreach( $options as $name => & $val ){
-      if( $name == 'term' )
+      if( $name == 'term' || $name == 'testimonials' )
         $val = intval( $val );
     }
 
@@ -361,6 +378,52 @@ function ateam_customizer ( $wp_customize )
       ], $atts, 'ateam_term' );
     
     $output = '<a href="' . get_permalink( $term_page_id ) . '" class="form__link">' . $atts['title'] . '</a>';
+
+    return $output;
+  }
+
+  /* ==============================================
+  ********  //Шорткод для вывода Кроссворда
+  =============================================== */
+  add_shortcode( 'ateam_crossword', 'ateam_crossword_function' );
+
+  function ateam_crossword_function()
+  {
+    $atts = shortcode_atts(
+      [         
+        
+      ], $atts, 'ateam_term' );
+
+    ob_start();
+
+    get_template_part( 'templates/crossword' );
+
+    $output = ob_get_contents();
+
+    ob_end_clean();
+
+    return $output;
+  }
+
+  /* ==============================================
+  ********  //Шорткод для вывода Тумбнайла
+  =============================================== */
+  add_shortcode( 'ateam_thumbnail', 'ateam_thumbnail_function' );
+
+  function ateam_thumbnail_function()
+  {
+    $atts = shortcode_atts(
+      [         
+        
+      ], $atts, 'ateam_term' );
+    
+    $output = '';
+    
+    if ( has_post_thumbnail(  ) ) {
+      $output = get_the_post_thumbnail(  );
+    }
+
+    $output = '<div class="promo__image">' . $output . '</div>';
 
     return $output;
   }

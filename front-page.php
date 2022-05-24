@@ -34,11 +34,11 @@
 
             // Case: models layout.
             elseif( get_row_layout() == 'models' ):
-              get_template_part( 'templates/front/models' );
+              get_template_part( 'templates/models' );
 
             // Case: contact layout.
             elseif( get_row_layout() == 'contact' ):
-              get_template_part( 'templates/front/contact' );
+              get_template_part( 'templates/contact' );
                       
             endif;
 

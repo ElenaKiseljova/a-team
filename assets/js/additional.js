@@ -1,17 +1,26 @@
 (() => {
-  // const termsInput = document.querySelector('#terms');
+  // const deviceWidth = window.innerWidth && document.documentElement.clientWidth ?
+  //   Math.min(window.innerWidth, document.documentElement.clientWidth) :
+  //   window.innerWidth ||
+  //   document.documentElement.clientWidth ||
+  //   document.getElementsByTagName('body')[0].clientWidth;
 
-  // if (termsInput) {
-  //   termsInput.addEventListener('change', () => {
-  //     const termsInputLabel = termsInput.closest('label');
+  // const crossword = document.querySelector('.promo__content .crossword');
+  // const promoImage = document.querySelector('.promo__content .promo__image');
 
-  //     if (termsInputLabel) {
-  //       if (termsInput.checked) {
-  //         termsInputLabel.classList.add('checked');
-  //       } else {
-  //         termsInputLabel.classList.remove('checked');
-  //       }
-  //     }
-  //   });
+  // const promoRight = document.querySelector('.promo__right');
+
+  // if (deviceWidth >= 1279) {
+  //   if (crossword && promoRight) {
+  //     const crosswordClone = crossword.cloneNode(true);
+  //     crossword.remove();
+
+  //     promoRight.appendChild(crosswordClone);
+  //   } else if (promoRight && promoImage) {
+  //     const promoImageClone = promoImage.cloneNode(true);
+  //     promoImage.remove();
+
+  //     promoRight.appendChild(promoImageClone);
+  //   }
   // }
 })();
