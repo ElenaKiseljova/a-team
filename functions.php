@@ -381,50 +381,5 @@ function ateam_customizer ( $wp_customize )
 
     return $output;
   }
-
-  /* ==============================================
-  ********  //Шорткод для вывода Кроссворда
-  =============================================== */
-  add_shortcode( 'ateam_crossword', 'ateam_crossword_function' );
-
-  function ateam_crossword_function()
-  {
-    $atts = shortcode_atts(
-      [         
-        
-      ], $atts, 'ateam_term' );
-
-    ob_start();
-
-    get_template_part( 'templates/crossword' );
-
-    $output = ob_get_contents();
-
-    ob_end_clean();
-
-    return $output;
-  }
-
-  /* ==============================================
-  ********  //Шорткод для вывода Тумбнайла
-  =============================================== */
-  add_shortcode( 'ateam_thumbnail', 'ateam_thumbnail_function' );
-
-  function ateam_thumbnail_function()
-  {
-    $atts = shortcode_atts(
-      [         
-        
-      ], $atts, 'ateam_term' );
-    
-    $output = '';
-    
-    if ( has_post_thumbnail(  ) ) {
-      $output = get_the_post_thumbnail(  );
-    }
-
-    $output = '<div class="promo__image">' . $output . '</div>';
-
-    return $output;
-  }
+  
 ?>

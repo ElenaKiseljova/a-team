@@ -11,17 +11,18 @@
     <?php if ( !empty($cases) && is_array($cases) && !is_wp_error( $cases ) ) : ?>
       <?php foreach ($cases as $key_case => $case_id) : ?>
         <?php 
-          $background_card_image = get_field( 'background_card_image', $case_id ) ?? '';
+          $case_background_card_image = get_field( 'case_background_card_image', $case_id ) ?? '';
+          $case_card_description = get_field( 'case_card_description', $case_id ) ?? '';
 
           $achievements = get_field( 'achievements', $case_id ) ?? [];
         ?>
-        <div class="cases__block" style="background-image: url(<?= get_template_directory_uri(  ); ?>/assets/img/cases-bg-1.png);">
+        <div class="cases__block" <?= !empty($case_background_card_image) ? 'style="background-image: url(' . $case_background_card_image . ');"' : ''; ?>>
           <div class="cases__info">
             <h3>
               <?= get_the_title( $case_id ); ?>
             </h3>
             <p>
-              <?= get_the_excerpt( $case_id ); ?>
+              <?= $case_card_description; ?>
             </p>
           </div>
           <div class="cases__details">
