@@ -1,7 +1,7 @@
 <?php 
-  $background_post_image = get_field( 'background_post_image' ) ?? '';
+  $post_thumbnail_url = get_the_post_thumbnail_url( null, 'large' ) ?? '';  
 ?>
-<li class="latest__card card" <?= !empty($background_post_image) ? 'style="background-image: url(' . $background_post_image . ');"' : ''; ?>>
+<li class="latest__card card" <?= !empty($post_thumbnail_url) ? 'style="background-image: url(' . $post_thumbnail_url . ');"' : ''; ?>>
   <h3 class="card__headline headline"><?= get_the_title(  ); ?></h3>
   <p class="card__text text">
     <?= get_the_excerpt(  ); ?>

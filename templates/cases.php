@@ -16,7 +16,7 @@
 
           $achievements = get_field( 'achievements', $case_id ) ?? [];
         ?>
-        <div class="cases__block" <?= !empty($case_background_card_image) ? 'style="background-image: url(' . $case_background_card_image . ');"' : ''; ?>>
+        <div class="cases__block" <?= (!empty($case_background_card_image) && is_front_page(  )) ? 'style="background-image: url(' . $case_background_card_image . ');"' : ''; ?>>
           <div class="cases__info">
             <h3>
               <?= get_the_title( $case_id ); ?>

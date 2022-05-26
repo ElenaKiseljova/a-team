@@ -26,7 +26,7 @@
 
           // Case: cases layout.
           elseif( get_row_layout() == 'cases' ):
-            get_template_part( 'templates/front/cases' );
+            get_template_part( 'templates/cases' );
 
           // Case: testimonial layout.
           elseif( get_row_layout() == 'testimonial' ):

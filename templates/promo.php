@@ -1,7 +1,9 @@
 <?php 
   $link = get_field( 'link' ) ?? [];
+
+  $background_image_style = get_field( 'background_image_style' ) ?? 'about';
 ?>
-<section class="promo">
+<section class="promo" <?= $background_image_style === 'expertise' ? 'promo--expertise' : ''; ?>>
   <div class="promo__container container">
     <div class="promo__left">
       <div class="promo__content">
@@ -18,13 +20,23 @@
         <a href="<?= $link['url']; ?>" class="promo__button promo__button--desktop button">
           <?= $link['text']; ?>
         </a>
-      <?php endif; ?>      
+      <?php endif; ?>          
     </div>
     
     <div class="promo__right">     
       <?php 
         if ( is_page_template( 'page-about.php' ) ) {
           get_template_part( 'templates/crossword' );
+        } else {
+          ?>
+            <div class="promo__image">
+              <?php 
+                if ( has_post_thumbnail(  ) ) {
+                  the_post_thumbnail( 'large' );
+                }
+              ?>
+            </div>
+          <?php          
         }        
       ?>
 

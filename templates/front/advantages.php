@@ -11,7 +11,7 @@
             $title = $item['title'] ?? '';
             $description = $item['description'] ?? '';
           ?>
-          <li class="advantages__item" style="background-image: url(<?= get_template_directory_uri(  ); ?>/assets/img/shape-1.png);">
+          <li class="advantages__item">
             <div class="advantages__info">
               <h2 class="advantages__title title"><?= $title; ?></h2>
               <p class="advantages__subtitle">

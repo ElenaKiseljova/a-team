@@ -21,7 +21,7 @@
 
           // Case: goal layout.
           if( get_row_layout() == 'goal' ):
-              get_template_part( 'templates/about/goal' );
+              get_template_part( 'templates/goal' );
 
           // Case: discuss layout.
           elseif( get_row_layout() == 'discuss' ):
@@ -45,7 +45,7 @@
 
           // Case: diff layout.
           elseif( get_row_layout() == 'diff' ):
-            get_template_part( 'templates/about/diff' );
+            get_template_part( 'templates/diff' );
 
           // Case: awards layout.
           elseif( get_row_layout() == 'awards' ):
