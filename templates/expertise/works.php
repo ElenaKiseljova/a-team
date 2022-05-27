@@ -18,22 +18,20 @@
           $testimonials = $item['testimonials'] ?? [];
         ?>
         <div class="works__block">
-          <div class="works__wrapper">
-            <div class="works__info">
-              <?= $description; ?>
-            </div>
-            <div class="works__plan">
-              <?php if ( $steps && !empty($steps) && is_array($steps) && !is_wp_error( $steps ) ) : ?>
-                <ul class="works__list">
-                  <?php foreach ($steps as $index => $step) : ?>
-                    <li class="works__item text">
-                      <span class="text--color"><strong>0<?= $index + 1; ?>.</strong></span>
-                      <?= $step['name']; ?>
-                    </li>
-                  <?php endforeach; ?>                  
-                </ul>
-              <?php endif; ?>              
-            </div>
+          <div class="works__info">
+            <?= $description; ?>
+          </div>
+          <div class="works__plan">
+            <?php if ( $steps && !empty($steps) && is_array($steps) && !is_wp_error( $steps ) ) : ?>
+              <ul class="works__list">
+                <?php foreach ($steps as $index => $step) : ?>
+                  <li class="works__item text">
+                    <span class="text--color"><strong>0<?= $index + 1; ?>.</strong></span>
+                    <?= $step['name']; ?>
+                  </li>
+                <?php endforeach; ?>                  
+              </ul>
+            <?php endif; ?>              
           </div>
         </div>
         

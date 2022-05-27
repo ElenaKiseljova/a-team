@@ -380,6 +380,5 @@ function ateam_customizer ( $wp_customize )
     $output = '<a href="' . get_permalink( $term_page_id ) . '" class="form__link">' . $atts['title'] . '</a>';
 
     return $output;
-  }
-  
+  }  
 ?>

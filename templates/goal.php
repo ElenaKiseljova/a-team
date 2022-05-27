@@ -48,9 +48,7 @@
           <?php endif; ?>
           
           <div class="goal__box">
-            <div class="goal__text text">
-              <?= $description; ?>
-            </div>            
+            <?= $description; ?>          
           </div>
         </div>
       <?php endforeach; ?>      

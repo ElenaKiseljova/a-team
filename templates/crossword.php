@@ -1,7 +1,7 @@
 <div class="crossword">
   <h2 class="crossword__name title">
     <span>a</span>
-    <span class="crossword__square">&#9642</span>
+    <span class="crossword__square"></span>
     <span>t</span>
     <span>e</span>
     <span>a</span>
