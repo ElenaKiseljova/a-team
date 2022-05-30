@@ -156,62 +156,100 @@
   endif;
 
   // Customizer
-add_action( 'customize_register', 'ateam_customizer' ); 
-function ateam_customizer ( $wp_customize ) 
-{
-  /* Create Panel Logo */  
-  $wp_customize->add_panel('logo', array(
-    'priority' => 50,
-    'theme_supports' => '',
-    'title' => __('Логотип', 'ateam'),
-    'description' => __('Изображения для Логотипа (хедер/футер)', 'ateam'),
-  ));
-  
-  /* Create Sections for Panel Logo */  
-  $wp_customize->add_section('logo_header', array(
-    'panel' => 'logo',
-    'type' => 'theme_mod', 
-    'priority' => 5,
-    'theme_supports' => '',
-    'title' => __('Логотип (хедер)', 'ateam'),
-    'description' => '',
-  ));
-  
-  $wp_customize->add_section('logo_footer', array(
-    'panel' => 'logo',
-    'type' => 'theme_mod', 
-    'priority' => 10,
-    'theme_supports' => '',
-    'title' => __('Логотип (футер)', 'ateam'),
-    'description' => '',
-  ));
-  
-  /* Create Settings for Panel Logo */  
-  $wp_customize->add_setting('logo_header', array(
-    'default'    =>  '',
-    'transport'  =>  'refresh',
-  ));
-  
-  $wp_customize->add_setting('logo_footer', array(
-    'default'    =>  '',
-    'transport'  =>  'refresh',
-  ));
-  
-  /* Create Controls for Panel Logo */  
-  $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'logo_image_header', array(
-      'label'    => __('Изображение логотипа', 'ateam'),
+  add_action( 'customize_register', 'ateam_customizer' ); 
+  function ateam_customizer ( $wp_customize ) 
+  {
+    /* Create Panel Header */  
+    $wp_customize->add_panel('header', array(
+      'priority' => 50,
+      'theme_supports' => '',
+      'title' => __('Header', 'ateam'),
+      // 'description' => __('Изображения для Логотипа (хедер/футер)', 'ateam'),
+    ));
+
+    /* Create Sections for Panel Logo */  
+    $wp_customize->add_section('logo_header', array(
+      'panel' => 'header',
+      'type' => 'theme_mod', 
+      'priority' => 5,
+      'theme_supports' => '',
+      'title' => __('Logo (header)', 'ateam'),
+      'description' => '',
+    ));
+
+    /* Create Settings for Panel Logo */  
+    $wp_customize->add_setting('logo_header', array(
+      'capability' => 'edit_theme_options',
+      'default'    =>  '',
+      'transport'  =>  'refresh',
+    ));
+
+    /* Create Controls for Panel Logo */  
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'logo_image_header', array(
+      'label'    => __('Image file logo', 'ateam'),
       'section'  => 'logo_header',
       'settings' => 'logo_header',
-  )));
-  
-  $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'logo_image_footer', array(
-      'label'    => __('Изображение логотипа', 'ateam'),
-      'section'  => 'logo_footer',
-      'settings' => 'logo_footer',
-  )));  
-}
+    )));
+    
 
-/* ==============================================
+    /* Create Panel Footer */  
+    $wp_customize->add_panel('footer', array(
+      'priority' => 50,
+      'theme_supports' => '',
+      'title' => __('Footer', 'ateam'),
+      // 'description' => __('Изображения для Логотипа (хедер/футер)', 'ateam'),
+    ));  
+    
+    /* Create Sections for Panel Logo */  
+    $wp_customize->add_section('logo_footer', array(
+      'panel' => 'footer',
+      'type' => 'theme_mod', 
+      'priority' => 10,
+      'theme_supports' => '',
+      'title' => __('Logo (footer)', 'ateam'),
+      'description' => '',
+    ));
+
+    $wp_customize->add_section('description_footer', array(
+      'panel' => 'footer',
+      'type' => 'theme_mod', 
+      'priority' => 11,
+      'theme_supports' => '',
+      'title' => __('Description', 'ateam'),
+      'description' => '',
+    ));
+    
+    /* Create Settings for Panel Logo */  
+    $wp_customize->add_setting('logo_footer', array(
+      'capability' => 'edit_theme_options',
+      'default'    =>  '',
+      'transport'  =>  'refresh',
+    ));
+
+    $wp_customize->add_setting('description_footer', array(
+      'capability' => 'edit_theme_options',
+      'default'    =>  '',
+      'transport'  =>  'refresh',
+      'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    
+    /* Create Controls for Panel Logo */  
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'logo_image_footer', array(
+        'label'    => __('Image file logo', 'ateam'),
+        'section'  => 'logo_footer',
+        'settings' => 'logo_footer',
+    )));  
+
+    $wp_customize->add_control( 'description_text_footer', array(
+      'type' => 'textarea',
+      'section' => 'description_footer',
+      'settings' => 'description_footer',
+      'label' => __( 'Description text' ),
+      'description' => __( 'This is a description in the footer.' ),
+    ) );
+  }
+
+  /* ==============================================
   ********  //Создаем страницу настроек A-team темы
   =============================================== */
   add_action('admin_menu', 'ateam_add_theme_page');

@@ -43,8 +43,3 @@ input[type=radio].visually-hidden {
 .form .wpcf7-form-control-wrap.terms {
   display: none;
 }
-
-.header__logo img {
-  width: 100%;
-  height: auto;
-}

@@ -8,15 +8,21 @@
   if ( !empty($ateam_settings_names) && $ateam_settings_names['term'] ) {
     $term_page_id = (int) $ateam_settings_names['term'];
   }
+
+  $description_footer = get_theme_mod( 'description_footer' ) ?? ''; 
 ?>
 
-<footer class="footer">
+  <footer class="footer">
     <div class="footer__container container">
       <?php 
         get_template_part( 'templates/logo', 'footer' );
       ?>
 
-      <div class="footer__info">        
+      <div class="footer__info">     
+        <div class="footer__description">
+          <?= nl2br( $description_footer ); ?>
+        </div>  
+
         <?php 
           get_template_part( 'templates/menu', 'social' );
         ?>

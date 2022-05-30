@@ -103,5 +103,4 @@
     </div>
     <img class="crossword__cat" src="<?= get_template_directory_uri(  ); ?>/assets/img/cat-1.svg" alt="running cat vector">
   </div>
-  <img class="crossword__cat-bottom" src="<?= get_template_directory_uri(  ); ?>/assets/img/cat-2.svg" alt="running cat vector">
 </div>

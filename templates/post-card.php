@@ -2,7 +2,9 @@
   $post_thumbnail_url = get_the_post_thumbnail_url( null, 'large' ) ?? '';  
 ?>
 <li class="latest__card card" <?= !empty($post_thumbnail_url) ? 'style="background-image: url(' . $post_thumbnail_url . ');"' : ''; ?>>
-  <h3 class="card__headline headline"><?= get_the_title(  ); ?></h3>
+  <h3 class="card__headline headline">
+    <a href="<?= get_permalink(  ); ?>"><?= get_the_title(  ); ?></a>    
+  </h3>
   <p class="card__text text">
     <?= get_the_excerpt(  ); ?>
   </p>
