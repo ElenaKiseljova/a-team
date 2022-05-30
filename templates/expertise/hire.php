@@ -11,14 +11,18 @@
       <?= $content; ?>
  
       <?php if (!empty($link)) : ?>
-        <a class="hire__button button button" href="<?= $link['url'] ?? ''; ?>"><?= $link['text'] ?? ''; ?></a>
+        <p class="hire__button button button">
+          <a href="<?= $link['url'] ?? ''; ?>"><?= $link['text'] ?? ''; ?></a>
+        </p>        
       <?php endif; ?> 
     </div>
 
     <img class="hire__img" src="<?= $image; ?>" alt="<?= strip_tags( get_the_title(  ) ); ?>">
     
     <?php if (!empty($link)) : ?>
-      <a class="hire__button hire__button--mob button" href="<?= $link['url'] ?? ''; ?>"><?= $link['text'] ?? ''; ?></a>
+      <p class="hire__button hire__button--mob button">
+        <a href="<?= $link['url'] ?? ''; ?>"><?= $link['text'] ?? ''; ?></a>
+      </p>      
     <?php endif; ?> 
   </div>
 </section>

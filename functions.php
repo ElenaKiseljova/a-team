@@ -14,7 +14,6 @@
   function ateam_scripts () {    
     wp_enqueue_script('swiper-script', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', $deps = array(), $ver = null, $in_footer = true );
     wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', $deps = array(), $ver = null, $in_footer = true ); 
-    wp_enqueue_script('additional-script', get_template_directory_uri() . '/assets/js/additional.js', $deps = array(), $ver = null, $in_footer = true ); 
   }
 
   // After setup

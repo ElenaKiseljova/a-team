@@ -1,3 +1,11 @@
+<?php 
+  if ( get_the_content() === '') {
+    wp_redirect( get_bloginfo( 'url' ) );
+
+    die();
+  }
+?>
+
 <?php
   get_header(  );
 ?>
@@ -43,6 +51,10 @@
           // Case: diff layout.
           elseif( get_row_layout() == 'diff' ):
             get_template_part( 'templates/diff' );
+
+          // Case: models layout.
+          elseif( get_row_layout() == 'models' ):
+            get_template_part( 'templates/models' );
                     
           endif;
 
@@ -66,11 +78,7 @@
 
           // Case: contact layout.
           if( get_row_layout() == 'contact' ):
-            get_template_part( 'templates/contact' );
-          
-          // Case: models layout.
-          elseif( get_row_layout() == 'models' ):
-            get_template_part( 'templates/models' );
+            get_template_part( 'templates/contact' );    
                     
           endif;
 

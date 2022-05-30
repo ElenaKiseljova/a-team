@@ -17,7 +17,9 @@
       <img class="call__img call__img--mobile" src="<?= $image['mobile'] ?? ''; ?>" alt="<?= get_bloginfo( 'name' ); ?>">
       
       <?php if (!empty($link)) : ?>
-        <a class="button" href="<?= $link['url'] ?? ''; ?>"><?= $link['text'] ?? ''; ?></a>
+        <p class="button">
+          <a href="<?= $link['url'] ?? ''; ?>"><?= $link['text'] ?? ''; ?></a>
+        </p>        
       <?php endif; ?> 
     </div>
     <img class="call__img" src="<?= $image['desktop'] ?? ''; ?>" alt="<?= get_bloginfo( 'name' ); ?>">
