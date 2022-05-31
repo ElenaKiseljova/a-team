@@ -1,6 +1,8 @@
 <?php 
   $title = get_sub_field( 'title' ) ?? [];
 
+  $text = get_sub_field( 'text' ) ?? '';
+
   $list = get_sub_field( 'list' ) ?? [];
 
   $values = false;
@@ -13,6 +15,12 @@
 <section class="goal">
   <div class="container">
     <h2 class="goal__title title"><?= $title['black'] ?? ''; ?> <span class="title--color"><?= $title['orange'] ?? ''; ?></span></h2>
+
+    <?php if ( !empty($text) ) : ?>
+      <p class="goal__description text">
+        <?= $text; ?>
+      </p>
+    <?php endif; ?>    
 
     <?php if ( $list && !empty($list) && is_array($list) && !is_wp_error( $list ) ) : ?>
       <?php foreach ($list as $key => $item) : ?>
