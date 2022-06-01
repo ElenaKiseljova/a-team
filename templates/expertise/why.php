@@ -1,7 +1,7 @@
 <?php 
   $list = get_sub_field( 'list' ) ?? '';  
 ?>
-<section class="why">
+<section class="why"> 
   <div class="why__container container">
     <?php if ( $list && !empty($list) && is_array($list) && !is_wp_error( $list ) ) : ?>
       <?php foreach ($list as $key => $item) : ?>
@@ -18,26 +18,30 @@
 
         <?php if ( $row_style === 'text' ) : ?>
           <div class="why__row why__row--text">
-            <div class="why__header">
+            <div class="why__content why__content--100">
               <h3><?= $title; ?></h3>
             </div>
 
-            <div class="why__left why__left--text">
+            <div class="why__content why__content--left">
               <?= $description_1; ?>
             </div>
-            <div class="why__right why__right--text">
+
+            <div class="why__content why__content--right">
               <?= $description_2; ?>
             </div>
           </div>        
         <?php else : ?>
           <div class="why__row <?= ($row_style === 'text_i') ? 'why__row--reverse' : ''; ?>">
-            <div class="why__left">
-              <div class="why__image">
-                <img src="<?= $image; ?>" alt="<?= strip_tags( get_the_title(  ) ); ?>">
-              </div>
-            </div>
-            <div class="why__right">
+            <div class="why__content why__content--top">
               <?= $description_1; ?>
+            </div>
+
+            <div class="why__image">
+              <img src="<?= $image; ?>" alt="<?= strip_tags( get_the_title(  ) ); ?>">
+            </div>
+
+            <div class="why__content why__content--bottom">
+              <?= $description_2; ?>
             </div>
           </div>
         <?php endif; ?>
