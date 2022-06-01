@@ -3,7 +3,7 @@
 
   $background_image_style = get_field( 'background_image_style' ) ?? 'about';
 ?>
-<section class="promo <?= $background_image_style === 'expertise' ? 'promo--expertise' : ''; ?>">
+<section class="promo <?= $background_image_style === 'expertise' ? 'promo--expertise' : ''; ?> <?= is_page_template( 'page-about.php' ) ? 'promo--about' : ''; ?>">
   <div class="promo__container container">
     <div class="promo__left">
       <div class="promo__content">

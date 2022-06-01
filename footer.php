@@ -14,15 +14,17 @@
 
   <footer class="footer">
     <div class="footer__container container">
-      <?php 
-        get_template_part( 'templates/logo', 'footer' );
-      ?>
-
-      <div class="footer__info">     
+      <div class="footer__top">
+        <?php 
+          get_template_part( 'templates/logo', 'footer' );
+        ?>
+        
         <div class="footer__description">
           <?= nl2br( $description_footer ); ?>
         </div>  
+      </div>      
 
+      <div class="footer__info">   
         <?php 
           get_template_part( 'templates/menu', 'social' );
         ?>

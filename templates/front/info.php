@@ -1,5 +1,5 @@
 <?php 
-  $image = get_sub_field( 'image' ) ?? '';
+  $image = get_sub_field( 'image' ) ?? [];
 
   $content = get_sub_field( 'content' ) ?? '';
 ?>
@@ -7,7 +7,10 @@
 <section class="info">
   <div class="info__container container">
     <?= $content; ?>
-    
-    <img class="info__img" src="<?= $image; ?>" alt="<?= get_bloginfo( 'name' ); ?>">
+ 
+    <picture class="info__img">
+      <source srcset="<?= $image['desktop'] ?? ''; ?>" media="(min-width: 767px)">
+      <img src="<?= $image['mobile'] ?? ''; ?>" alt="<?= get_bloginfo( 'name' ); ?>">
+    </picture>
   </div>
 </section>
