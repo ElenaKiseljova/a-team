@@ -4329,7 +4329,10 @@ input[type=radio].visually-hidden {
     transform: translateX(-50%);
   }
 
-  .goal__title,
+  .goal--bg .goal__title {
+    text-align: left;
+  }
+
   .goal__description {
     text-align: left;
   }
