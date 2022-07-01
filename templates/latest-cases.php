@@ -19,7 +19,7 @@
           <li class="latest__item">
             <a href="<?= get_permalink( $case_id ); ?>" class="latest__link <?= (get_the_content( null, false, $case_id ) === '') ? 'latest__link--disabled' : ''; ?>">
               <h4 class="latest__name headline">
-                <?= get_the_title( $case_id ); ?>e
+                <?= get_the_title( $case_id ); ?>
               </h4>
               <p class="text">
                 <?= get_the_excerpt( $case_id ); ?>
