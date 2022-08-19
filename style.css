@@ -40,6 +40,14 @@ input[type=radio].visually-hidden {
   margin-top: 10px;
 }
 
+.form--popup .wpcf7-not-valid-tip {
+  margin-top: -6px;
+}
+
 .form .wpcf7-form-control-wrap.terms {
   display: none;
+}
+
+.grecaptcha-badge {
+	display:none;
 }

@@ -42,7 +42,7 @@
 
           // Case: works layout.
           elseif( get_row_layout() == 'works' ):
-            get_template_part( 'templates/expertise/works' );
+            get_template_part( 'templates/works' );
 
           // Case: values layout.
           elseif( get_row_layout() == 'values' ):

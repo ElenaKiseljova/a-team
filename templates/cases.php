@@ -2,6 +2,8 @@
   $title = get_sub_field( 'title' ) ?? '';
 
   $cases = get_sub_field( 'cases' ) ?? [];
+
+  $cooperation = get_sub_field( 'cooperation' ) ?? [];
 ?>
 
 <section class="cases">
@@ -16,7 +18,7 @@
 
           $achievements = get_field( 'achievements', $case_id ) ?? [];
         ?>
-        <div class="cases__block" <?= (!empty($case_background_card_image) && is_front_page(  )) ? 'style="background-image: url(' . $case_background_card_image . ');"' : ''; ?>>
+        <div class="cases__block" <?= (!empty($case_background_card_image) && (is_front_page(  ) || is_page_template( 'page-fast.php' ))) ? 'style="background-image: url(' . $case_background_card_image . ');"' : ''; ?>>
           <div class="cases__info">
             <h3>
               <?= get_the_title( $case_id ); ?>
@@ -50,6 +52,20 @@
           </div>
         </div>
       <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if ( !empty($cooperation) && !is_wp_error( $cooperation ) && $cooperation['text'] && !empty($cooperation['text'])) : ?>
+      <div class="cooperation cooperation--discuss cases__cooperation">
+        <p class="headline cooperation__headline cooperation__headline">
+          <?= $cooperation['text']; ?>
+        </p>
+
+        <?php if ( $cooperation['button'] && $cooperation['button']['text'] && !empty($cooperation['button']['text']) && $cooperation['button']['link'] && !empty($cooperation['button']['link']) ) : ?>
+          <a class="button button--filled cooperation__button" href="<?= $cooperation['button']['link']; ?>">
+            <?= $cooperation['button']['text']; ?>
+          </a>
+        <?php endif; ?>        
+      </div>
     <?php endif; ?>
   </div>
 </section>

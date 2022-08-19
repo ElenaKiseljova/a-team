@@ -22,7 +22,7 @@
           
           // Case: awards layout.
           elseif( get_row_layout() == 'awards' ):
-            get_template_part( 'templates/front/awards' );
+            get_template_part( 'templates/awards' );
 
           // Case: cases layout.
           elseif( get_row_layout() == 'cases' ):

@@ -4,7 +4,7 @@
 <section class="news">
   <div class="container">
     <h1>
-      <?= get_the_title(  ); ?>
+      <?= is_404(  ) ? '404 - Page not found' : get_the_title(  ); ?>
     </h1>
     
     <?= $description; ?>
