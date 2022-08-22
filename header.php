@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header <?= (is_page_template( 'page-fast.php' ) || is_page_template( 'page-know.php' )) ? 'header--white' : ''; ?>">
     <div class="header__container container">
       <?php 
         get_template_part( 'templates/logo', 'header' );
